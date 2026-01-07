@@ -3,6 +3,7 @@ from flask import Flask
 
 from . import db
 from .auth import bp as auth_bp
+from .car import bp as car_bp
 from dotenv import load_dotenv
 
 def create_app(test_config=None):
@@ -25,6 +26,7 @@ def create_app(test_config=None):
     db.init_app(app)
 
     app.register_blueprint(auth_bp)
+    app.register_blueprint(car_bp)
 
     @app.route('/health')
     def health():
